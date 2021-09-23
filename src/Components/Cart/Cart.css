@@ -1,0 +1,21 @@
+.cart-design {
+  text-align: left;
+  display: flex;
+  justify-content: space-around;
+}
+
+.cart-design p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.total {
+  color: red;
+}
+
+.btn-review {
+  background-color: #f0c14b;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 6px 30px;
+}

@@ -1,0 +1,25 @@
+.logo {
+    height: 80px;
+    width: 289px;
+    margin-top: 20px;
+}
+
+.navbar {
+    background-color: #222222;
+    text-align: center;
+    padding: 10px;
+    margin-top: 0px;
+}
+.navbar a {
+    display: inline-block;
+    text-decoration: none;
+    color: antiquewhite;
+    margin-right: 20px;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.navbar a:hover{
+    background-color: lightblue;
+    color:#222222;
+}

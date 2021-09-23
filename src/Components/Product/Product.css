@@ -1,0 +1,26 @@
+.product-item {
+  display: flex;
+  margin: 5px 5px 8px 100px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid gray;
+  /* grid-template-rows: 2fr 1fr; */
+  /* grid-column-gap: 10px; */
+}
+
+.product-name {
+  font-weight: 400;
+  font-size: 18px;
+  color: blue;
+}
+
+.product-details {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.btn-regular {
+  background-color: #f0c14b;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 6px 30px;
+}
