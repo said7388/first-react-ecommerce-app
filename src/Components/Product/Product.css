@@ -24,3 +24,14 @@
   border-radius: 5px;
   padding: 6px 30px;
 }
+.product-rating {
+  text-align: left;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rating {
+  color: #d39905;
+  padding-right: 50%;
+}
