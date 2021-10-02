@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./Components/Header/Header";
 import Products from "./Components/Products/Products";
 import OrderReview from "./Components/OrderReview/OrderReview";
+import OrderPlace from "./Components/OrderPlace/OrderPlace";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route path="/review">
               <OrderReview></OrderReview>
+          </Route>
+          <Route path="/orderplace">
+            <OrderPlace></OrderPlace>
           </Route>
         </Switch>
       </BrowserRouter>

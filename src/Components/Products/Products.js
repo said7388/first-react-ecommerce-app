@@ -8,7 +8,7 @@ import "./Products.css";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const [count, setCount] = useCart(products);
+  const [cart, setCart] = useCart(products);
   const [searchProducts, setSearchProducts] = useState([]);
   useEffect(() => {
     fetch("./products.JSON")
@@ -21,11 +21,22 @@ const Products = () => {
   }, []);
 
   const eventHandler = (product) => {
-    const newCount = [...count, product];
-    setCount(newCount);
-    addToDb(product.key);
+    const exists = cart.find(pd => pd.key === product.key);
+        let newCart = [];
+        if (exists) {
+            const rest = cart.filter(pd => pd.key !== product.key);
+            exists.quantity = exists.quantity + 1;
+            newCart = [...rest, product];
+        }
+        else {
+            product.quantity = 1;
+            newCart = [...cart, product];
+        }
+        setCart(newCart);
+        // save to local storage (for now)
+        addToDb(product.key);
   };
-  // console.log(count);
+  // console.log(cart);
   // console.log(products)
   const searchHandler = event => {
     const searchText = event.target.value;
@@ -48,7 +59,7 @@ const Products = () => {
         </div>
         <div className='cart-area'>
           <div>
-            <Cart cart={count}><Link to='/review'>
+            <Cart cart={cart}><Link to='/review'>
         <button className='btn-review'>Review Your Order</button>
       </Link></Cart>
           </div>

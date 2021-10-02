@@ -1,9 +1,10 @@
 import React from "react";
-import { removeFromDb } from "../utilities/fakedb";
+import { clearTheCart, removeFromDb } from "../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import CartProduct from "../CartProduct/CartProduct";
 import useCart from "../Hooks/useCart/useCart";
 import useProducts from "../Hooks/useProducts/useProducts";
+import { Link } from "react-router-dom";
 
 const OrderReview = () => {
   const [products] = useProducts();
@@ -13,6 +14,9 @@ const OrderReview = () => {
     const newCart = cart.filter((prod) => prod.key !== product.key);
     setCart(newCart);
     removeFromDb(product.key);
+  };
+  const removeOrderItem = () => {
+    clearTheCart();
   };
   return (
     <div className='product-body'>
@@ -25,7 +29,13 @@ const OrderReview = () => {
         ))}
       </div>
       <div className='cart-area'>
-        <Cart cart={cart}></Cart>
+        <Cart cart={cart}>
+          <Link to='/orderplace'>
+            <button onClick={removeOrderItem} className='btn-review'>
+              Place Order
+            </button>
+          </Link>
+        </Cart>
       </div>
     </div>
   );
