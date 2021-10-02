@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Cart from "../Cart/Cart";
+import useCart from "../Hooks/useCart/useCart";
 import Product from "../Product/Product";
-import { addToDb, getStoredCart } from "../utilities/fakedb";
+import { addToDb } from "../utilities/fakedb";
 import "./Products.css";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const [count, setCount] = useState([]);
+  const [count, setCount] = useCart(products);
   const [searchProducts, setSearchProducts] = useState([]);
   useEffect(() => {
     fetch("./products.JSON")
@@ -18,22 +20,6 @@ const Products = () => {
       
   }, []);
 
-  useEffect(() => {
-    const storedProducts = getStoredCart();
-    // console.log(storedProducts);
-    const getStoredItems = [];
-    for (let key in storedProducts) {
-      // console.log(key);
-      // console.log(storedProducts[key]);
-      const addedProducts = products.find((product) => product.key === key);
-      if (addedProducts) {
-        addedProducts["quantity"] = storedProducts[key];
-        getStoredItems.push(addedProducts);
-        // console.log(key, addedProducts);
-      }
-    }
-    setCount(getStoredItems);
-  }, [products]);
   const eventHandler = (product) => {
     const newCount = [...count, product];
     setCount(newCount);
@@ -62,7 +48,9 @@ const Products = () => {
         </div>
         <div className='cart-area'>
           <div>
-            <Cart cart={count}></Cart>
+            <Cart cart={count}><Link to='/review'>
+        <button className='btn-review'>Review Your Order</button>
+      </Link></Cart>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Cart.css";
 
 const Cart = (props) => {
@@ -7,7 +8,7 @@ const Cart = (props) => {
   let itemsPrice = 0;
   let shipping = 0;
   for (let product of cart) {
-    if (!product.quantity){
+    if (!product.quantity) {
       product.quantity = 1;
     }
     totalItems += product.quantity;
@@ -39,7 +40,7 @@ const Cart = (props) => {
           <h3 className='total'>${totals.toFixed(2)}</h3>
         </div>
       </div>
-      <button className="btn-review">Review Your Order</button>
+      {props.children}
     </div>
   );
 };
