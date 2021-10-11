@@ -2,8 +2,8 @@ import React from "react";
 import { clearTheCart, removeFromDb } from "../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import CartProduct from "../CartProduct/CartProduct";
-import useCart from "../Hooks/useCart/useCart";
-import useProducts from "../Hooks/useProducts/useProducts";
+import useCart from "../Hooks/useCart";
+import useProducts from "../Hooks/useProducts";
 import { Link } from "react-router-dom";
 
 const OrderReview = () => {

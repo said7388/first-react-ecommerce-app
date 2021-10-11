@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Cart from "../Cart/Cart";
-import useCart from "../Hooks/useCart/useCart";
+import useCart from "../Hooks/useCart";
 import Product from "../Product/Product";
 import { addToDb } from "../utilities/fakedb";
 import "./Products.css";

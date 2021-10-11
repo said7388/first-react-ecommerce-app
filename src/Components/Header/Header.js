@@ -12,7 +12,8 @@ const Header = () => {
       <nav className='navbar'>
         <Link to="/shop"> Shop </Link>
         <Link to="/review"> Review </Link>
-        <Link to="/brand"> Brand </Link>
+        <Link to="/login"> Login </Link>
+        <Link to="/registration"> Sign Up </Link>
         <Link to="/about"> About </Link>
       </nav>
     </div>
